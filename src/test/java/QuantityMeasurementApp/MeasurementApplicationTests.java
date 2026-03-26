@@ -2,11 +2,15 @@ package QuantityMeasurementApp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+<<<<<<< HEAD
 import static org.junit.jupiter.api.Assertions.*;
+=======
+>>>>>>> d0b76d9a0491ec5c5b6bfb214c4a1c2f69bf5afc
 
 @SpringBootTest
 class MeasurementApplicationTests {
 
+<<<<<<< HEAD
     @Test
     void contextLoads() {
     }
@@ -45,3 +49,10 @@ class MeasurementApplicationTests {
         assertTrue(f1.equals(f1));
     }
 }
+=======
+	@Test
+	void contextLoads() {
+	}
+
+}
+>>>>>>> d0b76d9a0491ec5c5b6bfb214c4a1c2f69bf5afc

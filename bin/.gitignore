@@ -1,14 +1,5 @@
 HELP.md
 target/
-*.log
-*.class
-*.jar
-*.war
-*.ear
-<<<<<<< HEAD
-=======
-
->>>>>>> d0b76d9a0491ec5c5b6bfb214c4a1c2f69bf5afc
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/

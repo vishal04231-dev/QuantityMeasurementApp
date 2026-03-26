@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MeasurementApplication {
 
+<<<<<<< HEAD
     static class Feet{
         private final double value;
         public Feet(double value){
@@ -32,5 +33,10 @@ public class MeasurementApplication {
         System.out.println(f1.equals(f2));
     }
 
+=======
+	public static void main(String[] args) {
+		SpringApplication.run(MeasurementApplication.class, args);
+	}
+>>>>>>> d0b76d9a0491ec5c5b6bfb214c4a1c2f69bf5afc
 
 }
