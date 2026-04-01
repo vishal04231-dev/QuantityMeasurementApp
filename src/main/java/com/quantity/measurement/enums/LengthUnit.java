@@ -1,9 +1,8 @@
-package com.quantity.measurement.enums;
+package com.qunantity.measurement.enums;
 
 public enum LengthUnit{
-    INCH(1.0),
-    FEET(1.0/12);
-
+    INCH(1.0 / 12),  // ✔ correct
+    FEET(1.0);
     private final double toFeetFactor;
 
     LengthUnit(double toFeetFactor) {

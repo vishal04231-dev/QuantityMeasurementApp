@@ -1,17 +1,21 @@
-package com.quantity.measurement.model;
+package com.qunantity.measurement.model;
 
-import com.quantity.measurement.enums.LengthUnit;
+import com.qunantity.measurement.enums.LengthUnit;
 
 public class QuantityLength {
 
-    private final double value;
-    private final LengthUnit unit;
+    private double value;
+    private LengthUnit unit;
 
 
     public QuantityLength(double value, LengthUnit unit) {
         if(unit == null) throw new IllegalArgumentException("unit can not null ");
         this.value = value;
         this.unit = unit;
+    }
+
+    public double toFeet(){
+        return unit.toFeet(value);
     }
     @Override
     public boolean equals(Object obj) {
@@ -22,9 +26,18 @@ public class QuantityLength {
         QuantityLength other = (QuantityLength) obj;
 
         double thisInFeet = this.unit.toFeet(this.value);
-        double otherInFeet = this.unit.toFeet(this.value);
+        double otherInFeet = other.unit.toFeet(other.value);
+
 
 
         return Double.compare(thisInFeet,otherInFeet)==0;
     }
+
+    @Override
+    public String toString(){
+        return value+" "+unit.name();
+    }
+
+
+
 }
