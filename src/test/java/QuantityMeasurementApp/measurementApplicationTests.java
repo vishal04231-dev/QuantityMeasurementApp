@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class QuantityLengthTest {
 
-    // 1
+    
     @Test
     void testEquality_FeetToFeet_SameValue() {
         QuantityLength q1 = new QuantityLength(1.0, LengthUnit.FEET);
@@ -17,7 +17,7 @@ class QuantityLengthTest {
         assertTrue(q1.equals(q2));
     }
 
-    // 2
+    
     @Test
     void testEquality_InchToInch_SameValue() {
         QuantityLength q1 = new QuantityLength(1.0, LengthUnit.INCHES);
@@ -26,7 +26,6 @@ class QuantityLengthTest {
         assertTrue(q1.equals(q2));
     }
 
-    // 3
     @Test
     void testEquality_FeetToInch_EquivalentValue() {
         QuantityLength feet = new QuantityLength(1.0, LengthUnit.FEET);
@@ -35,7 +34,6 @@ class QuantityLengthTest {
         assertTrue(feet.equals(inch));
     }
 
-    // 4
     @Test
     void testEquality_InchToFeet_EquivalentValue() {
         QuantityLength inch = new QuantityLength(12.0, LengthUnit.INCHES);
@@ -44,7 +42,6 @@ class QuantityLengthTest {
         assertTrue(inch.equals(feet));
     }
 
-    // 5
     @Test
     void testEquality_FeetToFeet_DifferentValue() {
         QuantityLength q1 = new QuantityLength(1.0, LengthUnit.FEET);
@@ -53,7 +50,6 @@ class QuantityLengthTest {
         assertFalse(q1.equals(q2));
     }
 
-    // 6
     @Test
     void testEquality_InchToInch_DifferentValue() {
         QuantityLength q1 = new QuantityLength(1.0, LengthUnit.INCHES);
@@ -62,7 +58,6 @@ class QuantityLengthTest {
         assertFalse(q1.equals(q2));
     }
 
-    // 7
     @Test
     void testEquality_InvalidUnit() {
         // In your design, invalid unit = null (since enum restricts values)
@@ -71,7 +66,6 @@ class QuantityLengthTest {
         });
     }
 
-    // 8
     @Test
     void testEquality_NullUnit() {
         QuantityLength q1 = new QuantityLength(1.0, LengthUnit.FEET);
@@ -87,7 +81,6 @@ class QuantityLengthTest {
         assertTrue(q1.equals(q1));
     }
 
-    // 10
     @Test
     void testEquality_NullComparison() {
         QuantityLength q1 = new QuantityLength(1.0, LengthUnit.FEET);
