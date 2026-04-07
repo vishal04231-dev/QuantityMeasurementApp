@@ -35,6 +35,26 @@ public class QuantityLength {
         return targetUnit.fromBase(baseValue);
     }
 
+    public QuantityLength add(QuantityLength other) {
+
+        if (other == null) {
+            throw new IllegalArgumentException();
+        }
+
+        if (!Double.isFinite(other.value)) {
+            throw new IllegalArgumentException();
+        }
+
+        double thisInFeet = QuantityLength.convert(this.value, this.unit, LengthUnit.FEET);
+        double otherInFeet = QuantityLength.convert(other.value, other.unit, LengthUnit.FEET);
+
+
+        double sumInFeet = thisInFeet + otherInFeet;
+
+        double result = QuantityLength.convert(sumInFeet, LengthUnit.FEET, this.unit);
+
+        return new QuantityLength(result, this.unit);
+    }
     @Override
     public boolean equals(Object obj) {
 
@@ -48,5 +68,16 @@ public class QuantityLength {
         double otherInBase = other.unit.toBase(other.value);
 
         return Math.abs(thisInBase - otherInBase) < EPSILON;
+    }
+    public void add(double value, LengthUnit unit) {
+        if (unit == null)
+            throw new IllegalArgumentException("Unit cannot be null");
+    }
+
+    public double getValue() {
+        return value;
+    }
+    public LengthUnit getUnit() {
+        return unit;
     }
 }
