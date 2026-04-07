@@ -4,6 +4,8 @@ import com.quantity.measurement.enums.LengthUnit;
 
 public class QuantityLength {
 
+    private static final double EPSILON = 0.0001;
+
     private final double value;
     private final LengthUnit unit;
 
@@ -15,8 +17,22 @@ public class QuantityLength {
         this.unit = unit;
     }
 
-    public double convertToBase() {
-        return unit.toBase(value);
+    public double toConvert(LengthUnit targetUnit) {
+        return convert(this.value, this.unit, targetUnit);
+    }
+
+    public static double convert(double value, LengthUnit sourceUnit, LengthUnit targetUnit) {
+
+        if (sourceUnit == null || targetUnit == null) {
+            throw new IllegalArgumentException("Units shouldn't be empty");
+        }
+
+        if (!Double.isFinite(value)) {
+            throw new IllegalArgumentException("Invalid numeric value!");
+        }
+
+        double baseValue = sourceUnit.toBase(value);
+        return targetUnit.fromBase(baseValue);
     }
 
     @Override
@@ -28,11 +44,9 @@ public class QuantityLength {
 
         QuantityLength other = (QuantityLength) obj;
 
-        return Double.compare(this.convertToBase(), other.convertToBase()) == 0;
-    }
+        double thisInBase = this.unit.toBase(this.value);
+        double otherInBase = other.unit.toBase(other.value);
 
-    @Override
-    public String toString() {
-        return value + " " + unit.name();
+        return Math.abs(thisInBase - otherInBase) < EPSILON;
     }
 }
