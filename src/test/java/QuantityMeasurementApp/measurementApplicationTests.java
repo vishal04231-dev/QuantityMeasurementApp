@@ -355,10 +355,6 @@ import static org.junit.jupiter.api.Assertions.*;
                              LengthUnit.FEET));
          }
 
-         // ===============================
-// UC6 TEST CASES (12)
-// ===============================
-
          @Test
          void testAddition_SameUnit_FeetPlusFeet() {
 
