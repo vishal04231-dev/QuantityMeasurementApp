@@ -9,6 +9,88 @@ import static org.junit.jupiter.api.Assertions.*;
 class QuantityLengthTest {
     private final double EPSILON = 1e-6;
 
+<<<<<<< HEAD
+=======
+    
+    @Test
+    void testEquality_FeetToFeet_SameValue() {
+        QuantityLength q1 = new QuantityLength(1.0, LengthUnit.FEET);
+        QuantityLength q2 = new QuantityLength(1.0, LengthUnit.FEET);
+
+        assertTrue(q1.equals(q2));
+    }
+
+    
+    @Test
+    void testEquality_InchToInch_SameValue() {
+        QuantityLength q1 = new QuantityLength(1.0, LengthUnit.INCHES);
+        QuantityLength q2 = new QuantityLength(1.0, LengthUnit.INCHES);
+
+        assertTrue(q1.equals(q2));
+    }
+
+    @Test
+    void testEquality_FeetToInch_EquivalentValue() {
+        QuantityLength feet = new QuantityLength(1.0, LengthUnit.FEET);
+        QuantityLength inch = new QuantityLength(12.0, LengthUnit.INCHES);
+
+        assertTrue(feet.equals(inch));
+    }
+
+    @Test
+    void testEquality_InchToFeet_EquivalentValue() {
+        QuantityLength inch = new QuantityLength(12.0, LengthUnit.INCHES);
+        QuantityLength feet = new QuantityLength(1.0, LengthUnit.FEET);
+
+        assertTrue(inch.equals(feet));
+    }
+
+    @Test
+    void testEquality_FeetToFeet_DifferentValue() {
+        QuantityLength q1 = new QuantityLength(1.0, LengthUnit.FEET);
+        QuantityLength q2 = new QuantityLength(2.0, LengthUnit.FEET);
+
+        assertFalse(q1.equals(q2));
+    }
+
+    @Test
+    void testEquality_InchToInch_DifferentValue() {
+        QuantityLength q1 = new QuantityLength(1.0, LengthUnit.INCHES);
+        QuantityLength q2 = new QuantityLength(2.0, LengthUnit.INCHES);
+
+        assertFalse(q1.equals(q2));
+    }
+
+    @Test
+    void testEquality_InvalidUnit() {
+        // In your design, invalid unit = null (since enum restricts values)
+        assertThrows(IllegalArgumentException.class, () -> {
+            new QuantityLength(1.0, null);
+        });
+    }
+
+    @Test
+    void testEquality_NullUnit() {
+        QuantityLength q1 = new QuantityLength(1.0, LengthUnit.FEET);
+
+        assertNotEquals(null, q1);
+    }
+
+    // 9
+    @Test
+    void testEquality_SameReference() {
+        QuantityLength q1 = new QuantityLength(1.0, LengthUnit.FEET);
+
+        assertTrue(q1.equals(q1));
+    }
+
+    @Test
+    void testEquality_NullComparison() {
+        QuantityLength q1 = new QuantityLength(1.0, LengthUnit.FEET);
+
+        assertFalse(q1.equals(null));
+    }
+>>>>>>> 0c6dbf0fddb76d4017a4f03ef5858e30a854c8f4
     @Test
     void testEquality_YardToYard_SameValue() {
         assertEquals(new QuantityLength(1.0, LengthUnit.YARD), new QuantityLength(1.0, LengthUnit.YARD));
