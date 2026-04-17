@@ -53,6 +53,49 @@ public class QuantityLength {
         double result = targetUnit.convertFromBaseUnit(sumInFeet);
 
         return new QuantityLength(result, targetUnit);
+<<<<<<< Updated upstream
+=======
+    }
+
+    // ========================
+    // ADD (UC6)
+    // ========================
+    public QuantityLength add(QuantityLength other) {
+        return add(other, this.unit);
+    }
+
+    // ========================
+    // CONVERT (UC5 / UC8)
+    // Original -> Feet(Base) -> TargetUnit
+    // ========================
+    public QuantityLength toConvert(LengthUnit targetUnit) {
+        if (targetUnit == null) {
+            throw new IllegalArgumentException("target Unit should not null");
+        }
+
+        double thisInFeet = unit.convertToBaseUnit(this.value);
+        double targetValue = targetUnit.convertFromBaseUnit(thisInFeet);
+
+        return new QuantityLength(targetValue, targetUnit);
+    }
+
+    // ========================
+    // EQUALS (UC4)
+    // ========================
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj) return true;
+
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        QuantityLength other = (QuantityLength) obj;
+
+        double thisInFeet = this.unit.convertToBaseUnit(this.value);
+        double otherInFeet = other.unit.convertToBaseUnit(other.value);
+
+        return Math.abs(thisInFeet - otherInFeet) < EPSILON;
+>>>>>>> Stashed changes
     }
 
     // ========================

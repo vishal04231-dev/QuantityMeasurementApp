@@ -792,4 +792,8 @@ class MeasurementApplicationTests {
     void testArchitecturalScalability_MultipleCategories() {
         assertTrue(true); // Conceptual test
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
