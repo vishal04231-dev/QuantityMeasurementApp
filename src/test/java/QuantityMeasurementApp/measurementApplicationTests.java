@@ -9,8 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class QuantityLengthTest {
     private final double EPSILON = 1e-6;
 
-<<<<<<< HEAD
-=======
+
     
     @Test
     void testEquality_FeetToFeet_SameValue() {
