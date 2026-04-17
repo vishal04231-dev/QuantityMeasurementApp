@@ -1,25 +1,43 @@
 package com.quantity.measurement.enums;
 
 public enum LengthUnit {
+    FEET(1.0),
+    INCH(1.0 / 12.0),
+    YARDS(3.0),
+    CENTIMETERS(0.0328084);
 
-    INCHES(1.0),
-    FEET(12.0),
-    YARDS(36.0),
-    CM(0.393701);
+    private final double toFeetFactor;
 
-    private final double toBaseFactor; // base = inches
-
-    LengthUnit(double toBaseFactor) {
-        this.toBaseFactor = toBaseFactor;
+    LengthUnit(double toFeetFactor) {
+        this.toFeetFactor = toFeetFactor;
     }
 
-    // Convert any unit → base unit (inches)
+    public double getConversionFactor() {
+        return this.toFeetFactor;
+    }
+
+    public double convertToBaseUnit(double value) {
+        return value * toFeetFactor;
+    }
+
+    public double convertFromBaseUnit(double feetValue) {
+        return feetValue / toFeetFactor;
+    }
+
+    public double toFeet(double value) {
+        return convertToBaseUnit(value);
+    }
+
+    public double fromFeet(double value) {
+        return convertFromBaseUnit(value);
+    }
+
     public double toBase(double value) {
-        return value * toBaseFactor;
+        return convertToBaseUnit(value);
     }
 
-    // Convert base unit (inches) → target unit
     public double fromBase(double value) {
-        return value / toBaseFactor;
+        return convertFromBaseUnit(value);
     }
+
 }
