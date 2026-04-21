@@ -10,8 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class QuantityLengthTest {
     private final double EPSILON = 1e-6;
 
-<<<<<<< HEAD
-=======
+
     
     @Test
     void testEquality_FeetToFeet_SameValue() {
@@ -1048,6 +1047,7 @@ class MeasurementApplicationTests {
     }
 
 }
+<<<<<<< HEAD
 =======
     // Test Case 12 (Small values)
     @Test
@@ -1443,3 +1443,5 @@ class MeasurementApplicationTests {
     }
 }
 >>>>>>> 93060f024d78db26001dfa91e13f978033fe7c5f
+=======
+>>>>>>> def4d7ca4aa0037cc370ffb22442aad7462c7e8d
